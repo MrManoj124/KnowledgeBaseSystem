@@ -1,0 +1,15 @@
+[]
+[a]
+[hello, world]
+[[1,2,3,4],p,this]
+[[[1,2],[3,4]],[[a,b],[x,y]]]
+
+[a|L]
+
+max_element(5,2,Ans).
+
+max_element(x,y,x):-x>y,!.
+max_element(x,y,y).
+
+
+analyse_list([]).
