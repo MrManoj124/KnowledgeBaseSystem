@@ -1,0 +1,38 @@
+Question 1
+?- 
+|    initial(S),solve(S,[S],Plan).
+Reg No: 2021ICT08
+S = state(door, center, table, no),
+Plan = [move(door, center), move(center, window), move(window, table), pickup, move(table, door)] .
+
+Question 2
+
+?- solve(state(3,3,0,0,left),[],Plan).
+Reg No: 2021ICT08
+Plan = [(0, 1, state(3, 2, 0, 1, right)), (0, 1, state(3, 3, 0, 0, left)), (0, 2, state(3, 1, 0, 2, right)), (0, 1, state(3, 2, 0, 1, left)), (0, 2, state(3, 0, 0, 3, right)), (0, 1, state(3, 1, 0, 2, left)), (2, 0, state(..., ..., ..., ..., ...)), (1, ..., ...), (..., ...)|...] .
+
+Question 3
+
+?- solve((0,0),[(0,0)],Plan).
+Reg No: 2021ICT08
+Plan = [fill4, fill3, empty4, pour34, fill3, pour34, empty4, pour34] .
+
+
+Question 4
+?- 
+|    
+|    bfs([[[1,2,3,4,5,6,7,0,8]]],[1,2,3,4,5,6,7,8,0],Path).
+Reg No: 2021ICT08
+Path = [[1, 2, 3, 4, 5, 6, 7, 8|...], [1, 2, 3, 4, 5, 6, 7|...]].
+
+
+Question 5
+
+?- 
+|    
+|    hanoi(3,left,right,middle,Moves).
+Moves = [(left->right), (left->middle), (right->middle), (left->right), (middle->left), (middle->right), (left->right)].
+
+?- hanoi(3,left,right,middle,Moves),print_regno.
+Reg No: 2021ICT08
+Moves = [(left->right), (left->middle), (right->middle), (left->right), (middle->left), (middle->right), (left->right)].
