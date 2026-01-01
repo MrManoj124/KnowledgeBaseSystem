@@ -1,0 +1,64 @@
+consider the following prolog facts that represent details about different
+
+car(toyota,model(corolla),engine(1600), color(blue,white,yellow)).
+car(honda,model(civic),engine(1800),color(red)).
+car(nissan,model(altima),engine(2000),color(black,grey)).
+
+1.Write a prolog query to find all cars that have blue as one of their colors.
+2.Write a prolog query to find the engine capacity of the Toyota car.
+3.Explain how compound structures like color(blue,white,yellow)are useful 
+in representing the data in prolog.
+
+
+
+
+born(jan, date(20,3,1977)).
+born(jeroen, date(2,2,1992)).
+born(joris, date(17,3,1995)).
+born(jelle, date(1,1,2004)).
+born(jesus, date(24,12,0)).
+born(joop, date(30,4,1989)).
+born(jannecke, date(17,3,1993)).
+born(jaap, date(16,11,1995)).
+
+year(Y,person):-born(person,date,(_,_,Y)).
+year(1992,jerson).
+year(1995,joris).
+year(2004,jelle).
+year(2000,jesus).
+year(1989,joop).
+year(1993,jannecke).
+year(1995,jaap).
+
+
+year(Y,Person):-born(Person,date(_,_,Y)).
+
+?- year(1993,Person).
+Person = jannecke.
+
+?- year(1995,Person).
+Person = joris ;
+
+
+Person = jaap.
+
+older(Person1,Person2):-born(Person1,Data1),born(Person2,Data2),before(Data1,Data2).
+
+older(X,Y):-born(X,date(_,_,Z)),born(Y,date(_,_,S)),Z<S.
+?- older(jannacke,X).
+false.
+
+?- older(jesus,X).
+X = jan ;
+X = jeroen ;
+X = joris ;
+X = jelle ;
+X = joop ;
+X = jannecke ;
+X = jaap ;
+false.
+
+before(date(D1,M1,Y1),date(D2,M2,Y2)):-Y1<Y2,!;(M1<M2, Y1=Y2,!); (D1<D2,M1=M2, Y1=Y2).
+
+before(date(17,3,1995),date(16,11,1995)).
+true.
