@@ -1,0 +1,49 @@
+likes(john,tea).
+likes(sara,coffee).
+likes(raj,tea).
+likes(ravi,milk).
+likes(ajay,milk).
+likes(kumar,tea).
+
+
+?- findall(X,likes(X,tea),List).
+List = [john, raj, kumar].
+
+
+?- find(likes(john,X)).
+ERROR: Unknown procedure: find/1 (DWIM could not correct goal)
+?- findall(X,likes(X,tea),Manoj).
+Manoj = [john, raj, kumar].
+
+?- findall(X,likes(X,coffee),men).
+false.
+
+?- findall(X,likes(X,coffee),men).
+false.
+
+?- findall(X,likes(X,milk),men).
+false.
+
+?- findall(Y,likes(Y,milk),men).
+false.
+
+?- findall(Y,likes(Y,milk),List).
+List = [ravi, ajay].
+
+?- findall(Y,likes(Y,milk),Men).
+Men = [ravi, ajay].
+
+?- findall(X,likes(X,coffee),Mano).
+Mano = [sara].
+
+?- sort([4,8,7,5,2,6,9],X).
+X = [2, 4, 5, 6, 7, 8, 9].
+
+?- sort([apple,orange,pineapple,kiwi,papaya,mango,jac],Fruits).
+Fruits = [apple, jac, kiwi, mango, orange, papaya, pineapple].
+
+?- sort([apple,orange,apple1,pineapple,kiwi,kiwi1,papaya,mango,jac],Fruits).
+Fruits = [apple, apple1, jac, kiwi, kiwi1, mango, orange, papaya, pineapple].
+
+?- sort([apple,orange,apple-1,pineapple,kiwi,kiwi-1,papaya,mango,jac],Fruits).
+Fruits = [apple, jac, kiwi, mango, orange, papaya, pineapple, apple-1, ... - ...].
