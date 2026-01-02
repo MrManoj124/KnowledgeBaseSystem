@@ -1,0 +1,74 @@
+colors(green).
+colors(blue).
+colors(yellow).
+colors(purple).
+
+adjacent(green,blue).
+adjacent(green,yellow).
+adjacent(green,purple).
+
+adjacent(blue,green).
+adjacent(blue,yellow).
+adjacent(blue,purple).
+
+adjacent(yellow,green).
+adjacent(yellow,blue).
+adjacent(yellow,purple).
+
+adjacent(purple,green).
+adjacent(purple,blue).
+adjacent(purple,yellow).
+
+
+
+colorings([N,NC,E,NW,C,SA,W,U,SO]):-
+    colors(N),colors(NC),colors(E),colors(NW),colors(C),colors(SA),colors(W),colors(U),colors(SO),
+    N=purple,
+    W=purple,
+    U=purple,
+    adjacent(N,NW),adjacent(N,NC),adjacent(N,E),
+    adjacent(NC,N),adjacent(NC,NW),adjacent(NC,E),adjacent(NC,C),
+    adjacent(E,NC),adjacent(E,N),adjacent(E,U),adjacent(E,SO),adjacent(E,C),
+    adjacent(NW,N),adjacent(NW,NC),adjacent(NW,C),adjacent(NW,SA),adjacent(NW,W),
+    adjacent(C,NC),adjacent(C,NW),adjacent(C,E),adjacent(C,U),adjacent(C,SA),
+    adjacent(SA,C),adjacent(SA,NW),adjacent(SA,W),adjacent(SA,SO),adjacent(SA,U),
+    adjacent(W,NW),adjacent(W,SA),adjacent(W,SO),
+    adjacent(U,E),adjacent(U,SO),adjacent(U,SA),adjacent(U,C),
+    adjacent(SO,W),adjacent(SO,SA),adjacent(SO,U),adjacent(SO,E).
+	
+	
+	
+%%differnce(X,Y):-X\=Y.
+
+
+colors(green).
+colors(blue).
+colors(yellow).
+colors(purple).
+
+	adjacent(N,NW),adjacent(N,NC),adjacent(N,E),
+    adjacent(NC,N),adjacent(NC,NW),adjacent(NC,E),adjacent(NC,C),
+    adjacent(E,NC),adjacent(E,N),adjacent(E,U),adjacent(E,SO),adjacent(E,C),
+    adjacent(NW,N),adjacent(NW,NC),adjacent(NW,C),adjacent(NW,SA),adjacent(NW,W),
+    adjacent(C,NC),adjacent(C,NW),adjacent(C,E),adjacent(C,U),adjacent(C,SA),
+    adjacent(SA,C),adjacent(SA,NW),adjacent(SA,W),adjacent(SA,SO),adjacent(SA,U),
+    adjacent(W,NW),adjacent(W,SA),adjacent(W,SO),
+    adjacent(U,E),adjacent(U,SO),adjacent(U,SA),adjacent(U,C),
+    adjacent(SO,W),adjacent(SO,SA),adjacent(SO,U),adjacent(SO,E).
+
+differnce(X,Y):-X\=Y.
+
+colorings([N,NC,E,NW,C,SA,W,U,SO]):-
+    colors(N),colors(NC),colors(E),colors(NW),colors(C),colors(SA),colors(W),colors(U),colors(SO),
+    N=green,
+    W=green,
+    U=green,
+    differnce(N,NW),differnce(N,NC),differnce(N,E),
+    differnce(NC,N),differnce(NC,NW),differnce(NC,E),differnce(NC,C),
+    differnce(E,NC),differnce(E,N),differnce(E,U),differnce(E,SO),differnce(E,C),
+    differnce(NW,N),differnce(NW,NC),differnce(NW,C),differnce(NW,SA),differnce(NW,W),
+    differnce(C,NC),differnce(C,NW),differnce(C,E),differnce(C,U),differnce(C,SA),
+    differnce(SA,C),differnce(SA,NW),differnce(SA,W),differnce(SA,SO),differnce(SA,U),
+    differnce(W,NW),differnce(W,SA),differnce(W,SO),
+    differnce(U,E),differnce(U,SO),differnce(U,SA),differnce(U,C),
+    differnce(SO,W),differnce(SO,SA),differnce(SO,U),differnce(SO,E).
